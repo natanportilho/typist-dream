@@ -35,17 +35,21 @@ export class AppComponent {
         console.log('fail');
       }
     }
-
-    const lastTypedIndex = this.typed.length - 1;
-    if (this.originalText[lastTypedIndex] == this.typed[lastTypedIndex]) {
-      this.fixColors(this.typed.length);
-    } else {
-      this.typed = this.typed.slice(0, -1);
-    }
+    this.rewriteText();
   }
 
   @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
     if (event.keyCode == 8) {
+      this.typed = this.typed.slice(0, -1);
+    }
+    this.rewriteText();
+  }
+
+  rewriteText() {
+    const lastTypedIndex = this.typed.length - 1;
+    if (this.originalText[lastTypedIndex] == this.typed[lastTypedIndex]) {
+      this.fixColors(this.typed.length);
+    } else {
       this.typed = this.typed.slice(0, -1);
     }
   }
