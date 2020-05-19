@@ -1,7 +1,6 @@
 .main-section{
     width: 800px;
     height: 500px;
-    border:  1px dashed wheat;
 	position: absolute;
 	top:0;
 	bottom: 0;
@@ -37,7 +36,6 @@
 .initial-section {
     width: 100%;
     height: 100vh;
-    /* border: 1px solid black; */
     display: flex;
     align-items: center;
     justify-content: center;
