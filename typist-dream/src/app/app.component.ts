@@ -4,7 +4,7 @@ import { HostListener } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'typist-dream';
@@ -30,7 +30,7 @@ export class AppComponent {
 
     if (this.text.length == this.typed.length) {
       if (this.text == this.typed) {
-        console.log('sucess')
+        console.log('sucess');
       } else {
         console.log('fail');
       }
@@ -38,7 +38,9 @@ export class AppComponent {
     this.rewriteText();
   }
 
-  @HostListener('document:keydown', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+  @HostListener('document:keydown', ['$event']) onKeydownHandler(
+    event: KeyboardEvent
+  ) {
     if (event.keyCode == 8) {
       this.typed = this.typed.slice(0, -1);
     }
@@ -55,22 +57,21 @@ export class AppComponent {
   }
 
   fixColors(position: number) {
-    const textElement = document.getElementById("text");
+    const textElement = document.getElementById('text');
     const txt = this.originalText;
-    let newText = "";
+    let newText = '';
 
     for (let i = 0; i < this.originalText.length; i++) {
       if (i < position) {
-        newText += '<span style="color:#3a6ea5; text-decoration: underline;">' + txt.charAt(i) + '</span>';
+        newText +=
+          '<span style="color:#3a6ea5; text-decoration: underline;">' +
+          txt.charAt(i) +
+          '</span>';
       } else {
-        newText += '<span style="color:#010101"' + '">' + txt.charAt(i) + '</span>';
+        newText +=
+          '<span style="color:#010101' + '">' + txt.charAt(i) + '</span>';
       }
     }
     textElement.innerHTML = newText;
   }
-
-  highlightCurrentWord(){
-
-  }
-
 }
