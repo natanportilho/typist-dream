@@ -61,9 +61,9 @@ export class AppComponent {
 
     for (let i = 0; i < this.originalText.length; i++) {
       if (i < position) {
-        newText += '<span style="color:#2a9d8f' + '">' + txt.charAt(i) + '</span>';
+        newText += '<span style="color:#3a6ea5' + '">' + txt.charAt(i) + '</span>';
       } else {
-        newText += '<span style="color:#e63946' + '">' + txt.charAt(i) + '</span>';
+        newText += '<span style="color:#010101' + '">' + txt.charAt(i) + '</span>';
       }
     }
     textElement.innerHTML = newText;
