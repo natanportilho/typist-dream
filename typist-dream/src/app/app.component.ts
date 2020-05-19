@@ -18,7 +18,7 @@ export class AppComponent {
     const startButton = document.getElementById('start-button');
     startButton.style.display = 'none';
     const text = document.getElementById('text');
-    this.text = text.innerText
+    this.text = text.innerText;
     this.originalText = text.innerText;
   }
 
@@ -47,25 +47,30 @@ export class AppComponent {
 
   rewriteText() {
     const lastTypedIndex = this.typed.length - 1;
-    if (this.originalText[lastTypedIndex] == this.typed[lastTypedIndex]) {
+    if (this.originalText[lastTypedIndex] === this.typed[lastTypedIndex]) {
       this.fixColors(this.typed.length);
     } else {
       this.typed = this.typed.slice(0, -1);
     }
   }
 
-  fixColors(position: Number) {
+  fixColors(position: number) {
     const textElement = document.getElementById("text");
     const txt = this.originalText;
     let newText = "";
 
     for (let i = 0; i < this.originalText.length; i++) {
       if (i < position) {
-        newText += '<span style="color:#3a6ea5' + '">' + txt.charAt(i) + '</span>';
+        newText += '<span style="color:#3a6ea5; text-decoration: underline;">' + txt.charAt(i) + '</span>';
       } else {
-        newText += '<span style="color:#010101' + '">' + txt.charAt(i) + '</span>';
+        newText += '<span style="color:#010101"' + '">' + txt.charAt(i) + '</span>';
       }
     }
     textElement.innerHTML = newText;
   }
+
+  highlightCurrentWord(){
+
+  }
+
 }
