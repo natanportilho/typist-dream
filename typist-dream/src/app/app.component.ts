@@ -7,6 +7,8 @@ import { HostListener } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  timeTaken = 0;
+  interval;
   title = 'typist-dream';
   text = '';
   typed = '';
@@ -17,6 +19,8 @@ export class AppComponent {
     mainSection.style.display = 'block';
     const startButton = document.getElementById('start-button');
     startButton.style.display = 'none';
+    const timer = document.getElementById('timer');
+    timer.style.display = 'block';
     const text = document.getElementById('text');
     this.text = text.innerText;
     this.originalText = text.innerText;
@@ -24,6 +28,10 @@ export class AppComponent {
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
+    if (this.timeTaken === 0) {
+      this.startTimer();
+    }
+
     const key = event.key;
     this.typed = this.typed.concat(key);
     console.log(this.typed);
@@ -31,6 +39,7 @@ export class AppComponent {
     if (this.text.length == this.typed.length) {
       if (this.text == this.typed) {
         console.log('sucess');
+        this.stopTimer();
       } else {
         console.log('fail');
       }
@@ -73,5 +82,17 @@ export class AppComponent {
       }
     }
     textElement.innerHTML = newText;
+  }
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.timeTaken >= 0) {
+        this.timeTaken++;
+      }
+    }, 1000);
+  }
+
+  stopTimer() {
+    clearInterval(this.interval);
   }
 }
