@@ -29,6 +29,12 @@ export class AppComponent {
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
+    const startButton = document.getElementById('start-button');
+
+    if (startButton.style.display !== 'none') {
+      return;
+    }
+
     if (!this.timerRunning) {
       this.timerRunning = true;
       this.startTimer();
@@ -54,6 +60,11 @@ export class AppComponent {
   @HostListener('document:keydown', ['$event']) onKeydownHandler(
     event: KeyboardEvent
   ) {
+    const startButton = document.getElementById('start-button');
+
+    if (startButton.style.display !== 'none') {
+      return;
+    }
     if (event.keyCode == 8) {
       this.typed = this.typed.slice(0, -1);
     }
