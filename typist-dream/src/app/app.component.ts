@@ -42,6 +42,8 @@ export class AppComponent {
       if (this.text == this.typed) {
         console.log('sucess');
         this.stopTimer();
+        const timer = document.getElementById('timer');
+        timer.innerText = 'Your time is ' + timer.innerText;
       } else {
         console.log('fail');
       }
