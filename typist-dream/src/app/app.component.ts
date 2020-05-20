@@ -13,6 +13,7 @@ export class AppComponent {
   text = '';
   typed = '';
   originalText = '';
+  timerRunning = false;
 
   start() {
     const mainSection = document.getElementById('main-section');
@@ -28,7 +29,8 @@ export class AppComponent {
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    if (this.timeTaken === 0) {
+    if (!this.timerRunning) {
+      this.timerRunning = true;
       this.startTimer();
     }
 
