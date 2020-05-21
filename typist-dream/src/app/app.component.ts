@@ -22,9 +22,9 @@ export class AppComponent {
     startButton.style.display = 'none';
     const timer = document.getElementById('timer');
     timer.style.display = 'block';
-    const text = document.getElementById('text');
-    this.text = text.innerText;
-    this.originalText = text.innerText;
+    const challenge = document.getElementById('challenge-description');
+    challenge.style.display = 'inline';
+    this.createTextSection();
   }
 
   @HostListener('document:keypress', ['$event'])
@@ -110,4 +110,21 @@ export class AppComponent {
   stopTimer() {
     clearInterval(this.interval);
   }
+
+  createTextSection() {
+    const text1 = 'Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop.';
+    const text2 = 'Achieve the maximum speed possible on the Web Platform right now, and take it further, via Web Workers and server-side rendering. Angular puts you in control over scalability right here.';
+    const text3 = 'Meet data requirements by building data models on RxJS, Immutable.js or another push-model. From prototype through global deployment, Angular delivers the productivity and scalable infrastructure that supports Google\'s largest applications.';
+    const possiblePhrases: string[] = [text1, text2, text3];
+    const selectedTextindex = this.randomIntFromInterval(0, possiblePhrases.length - 1);
+    const text = document.getElementById('text');
+    text.innerText = possiblePhrases[selectedTextindex];
+    this.text = text.innerText;
+    this.originalText = text.innerText;
+  }
+
+  randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
 }

@@ -9,7 +9,7 @@
   right: 0;
   margin: auto;
   text-align: justify;
-  font-size: 30px;
+  font-size: 40px;
   line-height: 1.5;
   display: none;
   opacity: 90%;
@@ -59,4 +59,10 @@
   font-size: 30px;
   text-align: center;
   display: none;
+}
+
+#challenge-description {
+  display: none;
+  text-align: center;
+  font-size: 25px;
 }
