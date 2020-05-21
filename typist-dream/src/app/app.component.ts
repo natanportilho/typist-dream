@@ -49,7 +49,7 @@ export class AppComponent {
         console.log('sucess');
         this.stopTimer();
         const timer = document.getElementById('timer');
-        timer.innerText = 'Your time is ' + this.getCountertext(Number(timer.innerText));
+        timer.innerText = 'Your time is: ' + this.getCountertext(Number(timer.innerText));
       } else {
         console.log('fail');
       }
