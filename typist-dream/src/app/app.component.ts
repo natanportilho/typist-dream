@@ -37,6 +37,9 @@ export class AppComponent {
   handleKeyboardEvent(event: KeyboardEvent) {
     const startButton = document.getElementById('start-button');
 
+    const headerText = document.getElementById('header-text');
+    headerText.dataset.aos = 'fade-left';
+
     if (startButton.style.display !== 'none') {
       return;
     }

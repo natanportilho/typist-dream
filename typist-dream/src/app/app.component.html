@@ -1,6 +1,9 @@
+<!DOCTYPE html>
 <div class="all-body">
   <div id="challenge-description">
-    <div>Start typing the texty below to see how fast your fingers are :)</div>
+    <div id="header-text">
+      Start typing the texty below to see how fast your fingers are :)
+    </div>
   </div>
   <div class="initial-section">
     <button id="start-button" class="button" (click)="start()">Start</button>
@@ -8,7 +11,9 @@
   <div class="main-section" id="main-section">
     <span id="text"> </span>
     <div class="timer" id="timer">
-      <p>{{ timeTaken }}</p>
+      <div class="clock-box">
+        <p>{{ timeTaken }}</p>
+      </div>
     </div>
   </div>
 </div>
