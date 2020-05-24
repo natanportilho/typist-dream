@@ -75,4 +75,6 @@
 
 #restart-section {
   visibility: hidden;
+  text-align: center;
+  margin-top: 50px;
 }
