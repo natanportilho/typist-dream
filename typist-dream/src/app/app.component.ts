@@ -30,7 +30,19 @@ export class AppComponent {
     timer.style.display = 'block';
     const challenge = document.getElementById('challenge-description');
     challenge.style.display = 'inline';
+    const restart = document.getElementById('restart-section');
+    restart.style.visibility = 'hidden';
+    const result = document.getElementById('result');
+    result.innerText = '';
     this.createTextSection();
+  }
+
+  restart() {
+    this.typed = '';
+    this.stopTimer();
+    this.timeTaken = 0;
+    this.timerRunning = false;
+    this.start();
   }
 
   @HostListener('document:keypress', ['$event'])
@@ -58,7 +70,11 @@ export class AppComponent {
         console.log('sucess');
         this.stopTimer();
         const timer = document.getElementById('timer');
-        timer.innerText = 'Your time is: ' + this.getCountertext(Number(timer.innerText));
+        const result = document.getElementById('result');
+        result.innerText = 'Your time is: ' + this.getCountertext(Number(timer.innerText));
+        const restart = document.getElementById('restart-section');
+        restart.style.visibility = 'visible';
+
       } else {
         console.log('fail');
       }
