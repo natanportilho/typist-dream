@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HostListener } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,11 @@ export class AppComponent {
   typed = '';
   originalText = '';
   timerRunning = false;
+
+
+  ngOnInit() {
+    AOS.init();
+  }
 
   start() {
     const mainSection = document.getElementById('main-section');
