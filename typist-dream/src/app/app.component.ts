@@ -31,7 +31,7 @@ export class AppComponent {
     const challenge = document.getElementById('challenge-description');
     challenge.style.display = 'inline';
     const restart = document.getElementById('restart-section');
-    restart.style.visibility = 'hidden';
+    restart.style.display = 'none';
     const result = document.getElementById('result');
     result.innerText = '';
     this.createTextSection();
@@ -49,8 +49,8 @@ export class AppComponent {
   handleKeyboardEvent(event: KeyboardEvent) {
     const startButton = document.getElementById('start-button');
 
-    const headerText = document.getElementById('header-text');
-    headerText.dataset.aos = 'fade-left';
+    // const headerText = document.getElementById('header-text');
+    // headerText.dataset.aos = 'fade-left';
 
     if (startButton.style.display !== 'none') {
       return;
@@ -73,7 +73,7 @@ export class AppComponent {
         const result = document.getElementById('result');
         result.innerText = 'Your time is: ' + this.getCountertext(Number(timer.innerText));
         const restart = document.getElementById('restart-section');
-        restart.style.visibility = 'visible';
+        restart.style.display = 'block';
 
       } else {
         console.log('fail');

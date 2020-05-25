@@ -74,7 +74,11 @@
 }
 
 #restart-section {
-  visibility: hidden;
+  display: none;
   text-align: center;
   margin-top: 50px;
+}
+
+body {
+  width: 800px;
 }
